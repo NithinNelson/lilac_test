@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeProvider.themeMode,
             theme: MyThemes.lightTheme,
             darkTheme: MyThemes.darkTheme,
-            home: const VideoList(),
+            home: const Splash(),
             routes: {
               Login.routName: (ctx) => const Login(),
               VideoPage.routName: (ctx) => const VideoPage(),

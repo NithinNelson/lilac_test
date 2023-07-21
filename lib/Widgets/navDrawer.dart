@@ -13,6 +13,22 @@ class NavDrawer extends StatefulWidget {
 }
 
 class _NavDrawerState extends State<NavDrawer> {
+  String? number = "";
+
+  @override
+  void initState() {
+    _initialize();
+    super.initState();
+  }
+
+  _initialize() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? user = prefs.getString("login");
+    setState(() {
+      number = user;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,6 +38,11 @@ class _NavDrawerState extends State<NavDrawer> {
           height: MediaQuery.of(context).size.height * 0.7,
           child: ListView(
             children: [
+              Container(
+                width: 200,
+                  height: 50,
+                  child: Center(child: Text("Hello, $number")),
+              ),
               ListTile(
                 title: Text("Profile"),
                 leading: Icon(Icons.account_circle_rounded, color: Theme.of(context).primaryColor,),

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+import 'package:fluttertest/screens/video_list.dart';
 import 'package:fluttertest/utils/snackBar.dart';
 import 'package:pinput/pinput.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -187,7 +188,7 @@ class _LoginState extends State<Login> {
         await prefs.setString('login', user);
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) {
-              return const VideoPage();
+              return const VideoList();
             }), (route) => false);
       } catch (e) {
         setState(() {
